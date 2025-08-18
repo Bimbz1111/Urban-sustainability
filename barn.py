@@ -2,7 +2,7 @@ import streamlit as st
 
 import pandas as pd
 
-#import plotly.express as px
+import plotly.express as px
 
 import joblib
 
@@ -68,19 +68,19 @@ viz_data = pd. DataFrame({
       'cluster': [cluster_info[prediction]]
   })
     
-# fig = px.choropleth(
-# viz_data,
-# locationmode='country names', 
-# locations='country', color='cluster',
-# title='Gloabl Sustainability Map', 
-# color_discrete_map={'Critical Intervention Zone':'red',
-#                       'Transitional Cities':'yellow',
-#                       'Sustainability Leaders': 'green'
-#                       },
-# hover_name='cluster'
-#   )
+fig = px.choropleth(
+viz_data,
+locationmode='country names', 
+locations='country', color='cluster',
+title='Gloabl Sustainability Map', 
+color_discrete_map={'Critical Intervention Zone':'red',
+                      'Transitional Cities':'yellow',
+                      'Sustainability Leaders': 'green'
+                      },
+hover_name='cluster'
+  )
 
-#st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 # we need to tell stream lit to show the map, we use st.plotly isntead of fig show becos streamlit support plotly use container to be true so it does go out of span of the chosen arc
 
 
